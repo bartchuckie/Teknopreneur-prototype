@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeknoPreneur Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <p>Loading TeknoPreneur Admin...</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-seedling"></i>
+                <span>TeknoPreneur Admin</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link" data-page="admin">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="#" class="nav-link" data-page="messages">
+                    <i class="fas fa-comments"></i> Messages
+                    <span class="badge" id="messagesBadge">3</span>
+                </a>
+                <div class="user-controls">
+                    <a href="#" class="nav-link" data-page="profile" id="profileLink">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="customer.html" class="nav-link">
+                        <i class="fas fa-store"></i> Customer View
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Admin Dashboard -->
+        <div class="page" id="adminPage">
+            <div class="admin-container">
+                <aside class="admin-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Admin Panel</h2>
+                    </div>
+                    <nav class="admin-nav">
+                        <a href="#" class="admin-nav-link active" data-admin-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a href="#" class="admin-nav-link" data-admin-section="products">
+                            <i class="fas fa-box"></i> Products
+                        </a>
+                        <a href="#" class="admin-nav-link" data-admin-section="orders">
+                            <i class="fas fa-shopping-bag"></i> Orders
+                        </a>
+                        <a href="#" class="admin-nav-link" data-admin-section="messages">
+                            <i class="fas fa-envelope"></i> Messages
+                        </a>
+                        <a href="#" class="admin-nav-link" data-admin-section="analytics">
+                            <i class="fas fa-chart-bar"></i> Analytics
+                        </a>
+                    </nav>
+                </aside>
+                
+                <main class="admin-main">
+                    <div class="admin-section" id="adminDashboard">
+                        <!-- Admin dashboard content -->
+                    </div>
+                    
+                    <div class="admin-section hidden" id="adminProducts">
+                        <!-- Admin products content -->
+                    </div>
+                    
+                    <div class="admin-section hidden" id="adminOrders">
+                        <!-- Admin orders content -->
+                    </div>
+                    
+                    <div class="admin-section hidden" id="adminMessages">
+                        <!-- Admin messages content -->
+                    </div>
+                    
+                    <div class="admin-section hidden" id="adminAnalytics">
+                        <!-- Admin analytics content -->
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Messages Page (Admin version) -->
+        <div class="page hidden" id="messagesPage">
+            <div class="messaging-container">
+                <aside class="conversations-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Admin Messages</h2>
+                        <button class="btn btn--primary btn--sm" id="newMessageBtn">
+                            <i class="fas fa-plus"></i> New
+                        </button>
+                    </div>
+                    <div class="conversations-list" id="conversationsList">
+                        <!-- Conversations will be dynamically loaded -->
+                    </div>
+                </aside>
+                
+                <main class="chat-main">
+                    <div class="chat-header" id="chatHeader">
+                        <div class="chat-info">
+                            <h3 id="chatTitle">Select a conversation</h3>
+                            <p id="chatSubtitle">Manage customer communications</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="empty-chat">
+                            <i class="fas fa-comments"></i>
+                            <p>Select a conversation to view messages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input hidden" id="chatInput">
+                        <div class="input-container">
+                            <input type="text" class="form-control" id="messageInput" placeholder="Type your message...">
+                            <button class="btn btn--primary" id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Profile Page (Admin version) -->
+        <div class="page hidden" id="profilePage">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Admin Profile</h1>
+                </div>
+                
+                <div class="profile-content" id="profileContent">
+                    <!-- Admin profile content will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal hidden" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Product Management</h2>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message hidden" id="successMessage">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="successText">Success!</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+```

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeknoPreneur E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <p>Loading TeknoPreneur...</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-seedling"></i>
+                <span>TeknoPreneur</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link" data-page="home">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="nav-link" data-page="products">
+                    <i class="fas fa-store"></i> Products
+                </a>
+                <a href="#" class="nav-link" data-page="messages">
+                    <i class="fas fa-comments"></i> Messages
+                    <span class="badge" id="messagesBadge">3</span>
+                </a>
+                <a href="#" class="nav-link" data-page="cart" id="cartLink">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="badge" id="cartBadge">0</span>
+                </a>
+                <div class="user-controls">
+                    <a href="#" class="nav-link" data-page="profile" id="profileLink">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="admin.html" class="nav-link">
+                        <i class="fas fa-cogs"></i> Admin Login
+                    </a>
+                </div>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Homepage -->
+        <div class="page" id="homePage">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>TeknoPreneur</h1>
+                    <p class="hero-subtitle">A Market Platform For Drug Reformists' Engineering Innovations and Handicrafts</p>
+                    <p class="hero-description">Discover unique handcrafted products and innovative engineering solutions from talented reformist artisans. Support community rehabilitation through sustainable commerce.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn--primary btn--lg" data-page="products">Shop Products</button>
+                        <button class="btn btn--outline btn--lg">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <h3>127</h3>
+                        <p>Products</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>245</h3>
+                        <p>Customers</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="how-it-works">
+                <div class="container">
+                    <h2>How It Works</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Browse Products</h3>
+                            <p>Explore our curated collection of handcrafted items and innovative solutions</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Connect with us</h3>
+                            <p>Message directly to learn about their process and customize orders</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Support Community</h3>
+                            <p>Purchase products and contribute to sustainable rehabilitation programs</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured-products">
+                <div class="container">
+                    <h2>Featured Products</h2>
+                    <div class="products-grid" id="featuredProductsGrid">
+                        <!-- Products will be dynamically loaded -->
+                    </div>
+                    <div class="section-actions">
+                        <button class="btn btn--primary" data-page="products">View All Products</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Product Catalog Page -->
+        <div class="page hidden" id="productsPage">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Product Catalog</h1>
+                    <p>Discover unique handcrafted items and innovative solutions</p>
+                </div>
+            </div>
+            
+            <div class="catalog-container">
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3>Search</h3>
+                        <input type="text" class="form-control" id="productSearch" placeholder="Search products...">
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h3>Categories</h3>
+                        <div class="filter-options" id="categoryFilters">
+                            <!-- Categories will be dynamically loaded -->
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h3>Price Range</h3>
+                        <div class="price-range">
+                            <input type="range" id="priceRange" min="0" max="200" value="200" class="range-slider">
+                            <div class="price-labels">
+                                <span>$0</span>
+                                <span id="maxPrice">$200</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--outline btn--full-width" id="clearFilters">Clear Filters</button>
+                </aside>
+                
+                <main class="products-main">
+                    <div class="catalog-controls">
+                        <div class="results-info">
+                            <span id="resultsCount">0 products found</span>
+                        </div>
+                        <select class="form-control sort-select" id="sortSelect">
+                            <option value="name">Sort by Name</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                    
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be dynamically loaded -->
+                    </div>
+                    
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be dynamically loaded -->
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Product Detail Page -->
+        <div class="page hidden" id="productDetailPage">
+            <div class="container">
+                <button class="btn btn--outline back-btn" id="backToProducts">
+                    <i class="fas fa-arrow-left"></i> Back to Products
+                </button>
+                
+                <div class="product-detail" id="productDetail">
+                    <!-- Product details will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping Cart Page -->
+        <div class="page hidden" id="cartPage">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Shopping Cart</h1>
+                </div>
+                
+                <div class="cart-content" id="cartContent">
+                    <!-- Cart content will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div class="page hidden" id="checkoutPage">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Checkout</h1>
+                </div>
+                
+                <div class="checkout-content">
+                    <div class="checkout-form">
+                        <h2>Customer Information</h2>
+                        <form id="checkoutForm">
+                            <div class="form-group">
+                                <label class="form-label" for="customerName">Full Name</label>
+                                <input type="text" class="form-control" id="customerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="customerEmail">Email</label>
+                                <input type="email" class="form-control" id="customerEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="customerPhone">Phone Number</label>
+                                <input type="tel" class="form-control" id="customerPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="pickupLocation">Pickup Location</label>
+                                <select class="form-control" id="pickupLocation" required>
+                                    <option value="">Select pickup location</option>
+                                    <option value="main">Main Workshop - 123 Craft Street</option>
+                                    <option value="community">Community Center - 456 Helper Ave</option>
+                                    <option value="market">Weekend Market - 789 Market Square</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="order-summary" id="checkoutSummary">
+                        <!-- Order summary will be dynamically loaded -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Page -->
+        <div class="page hidden" id="messagesPage">
+            <div class="messaging-container">
+                <aside class="conversations-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Messages</h2>
+                        <button class="btn btn--primary btn--sm" id="newMessageBtn">
+                            <i class="fas fa-plus"></i> New
+                        </button>
+                    </div>
+                    <div class="conversations-list" id="conversationsList">
+                        <!-- Conversations will be dynamically loaded -->
+                    </div>
+                </aside>
+                
+                <main class="chat-main">
+                    <div class="chat-header" id="chatHeader">
+                        <div class="chat-info">
+                            <h3 id="chatTitle">Select a conversation</h3>
+                            <p id="chatSubtitle">Choose a conversation to start messaging</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="empty-chat">
+                            <i class="fas fa-comments"></i>
+                            <p>Select a conversation to view messages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input hidden" id="chatInput">
+                        <div class="input-container">
+                            <input type="text" class="form-control" id="messageInput" placeholder="Type your message...">
+                            <button class="btn btn--primary" id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div class="page hidden" id="profilePage">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Profile</h1>
+                </div>
+                
+                <div class="profile-content" id="profileContent">
+                    <!-- Profile content will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal hidden" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Product Details</h2>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message hidden" id="successMessage">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="successText">Success!</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
