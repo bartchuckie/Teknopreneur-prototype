@@ -334,8 +334,25 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <h3 class="footer-title">Our Mission</h3>
+            <p class="footer-text">We believe in the power of rehabilitation through creativity and innovation. Our platform showcases beautiful handicrafts and engineering solutions created by individuals in drug reform programs, providing them with meaningful work and a path to reintegration.</p>
+            <p class="footer-text">Every purchase directly supports our makers and contributes to their journey of recovery and personal growth.</p>
+
+            <div class="footer-meta">
+                <p>&copy; <span id="currentYear"></span> TeknoPreneur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

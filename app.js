@@ -25,80 +25,80 @@ const products = [
         name: "Handwoven Bamboo Basket",
         price: 450.00,
         category: "Home Decor",
-        image: "🧺",
+        image: '<img src="images/bamboo1.png" alt="Ceramic Clay Pot Set" />',
         description: "Beautiful handwoven bamboo basket perfect for storage or decoration. Crafted by skilled artisans using traditional techniques passed down through generations.",
         stock: 15,
-        seller: "Maria Santos"
+      
     },
     {
         id: 2,
         name: "Ceramic Clay Pot Set",
         price: 89.99,
         category: "Pottery",
-        image: "🏺",
+        image: '<img src="images/pot1.png" alt="Ceramic Clay Pot Set" />',
         description: "Set of 3 handcrafted ceramic pots with traditional designs. Perfect for cooking or decorative purposes. Each piece is unique and tells a story.",
         stock: 8,
-        seller: "Juan Rodriguez"
+        
     },
     {
         id: 3,
         name: "Silver Wire Jewelry",
         price: 35.50,
         category: "Jewelry",
-        image: "💍",
+        image: '<img src="images/jew1.png" alt="Ceramic Clay Pot Set" />',
         description: "Elegant silver wire bracelet with intricate patterns. Handcrafted with attention to detail and designed to last a lifetime.",
         stock: 22,
-        seller: "Ana Lopez"
+        
     },
     {
         id: 4,
         name: "Wooden Carved Figurine",
         price: 65.00,
         category: "Wood Crafts",
-        image: "🎭",
+        image: '<img src="images/wooden1.png" alt="Ceramic Clay Pot Set" />',
         description: "Hand-carved wooden figurine representing traditional folklore. Made from sustainable wood sources with eco-friendly finishes.",
         stock: 12,
-        seller: "Carlos Martinez"
+        
     },
     {
         id: 5,
         name: "Textile Wall Hanging",
         price: 78.50,
         category: "Textiles",
-        image: "🧵",
+        image: '<img src="images/textile1.png" alt="Ceramic Clay Pot Set" />',
         description: "Colorful textile wall hanging with geometric patterns. Woven using traditional looms and natural dyes for vibrant, lasting colors.",
         stock: 9,
-        seller: "Rosa Fernandez"
+        
     },
     {
         id: 6,
         name: "Leather Hand Bag",
         price: 125.00,
         category: "Leather Work",
-        image: "👜",
+        image: '<img src="images/leather1.png" alt="Ceramic Clay Pot Set" />',
         description: "Premium leather handbag with hand-stitched details. Durable construction meets elegant design for everyday sophistication.",
         stock: 6,
-        seller: "Miguel Torres"
+      
     },
     {
         id: 7,
         name: "Metal Wind Chimes",
         price: 42.75,
         category: "Metal Crafts",
-        image: "🎐",
+        image: '<img src="images/metal1.png" alt="Ceramic Clay Pot Set" />',
         description: "Handforged metal wind chimes with soothing tones. Each chime is carefully tuned to create harmonious melodies in the breeze.",
         stock: 18,
-        seller: "Elena Vasquez"
+        
     },
     {
         id: 8,
         name: "Embroidered Pillow Covers",
         price: 28.99,
         category: "Textiles",
-        image: "🛏️",
+        image: '<img src="images/emb1.png" alt="Ceramic Clay Pot Set" />',
         description: "Set of decorative pillow covers with traditional embroidery. Hand-stitched patterns that bring cultural heritage to your home.",
         stock: 25,
-        seller: "Carmen Delgado"
+       
     }
 ];
 
@@ -149,7 +149,7 @@ const orders = [
 const conversations = [
     {
         id: 1,
-        participants: ["Customer", "Maria Santos"],
+        participants: ["Customer", "TeknoChat"],
         lastMessage: "Thank you for your interest in the bamboo basket!",
         timestamp: "2024-10-14 15:30",
         messages: [
@@ -159,7 +159,7 @@ const conversations = [
                 timestamp: "2024-10-14 14:30"
             },
             {
-                sender: "Maria Santos",
+                sender: "TecknoChat",
                 text: "Yes, I can make custom sizes. What dimensions do you need?",
                 timestamp: "2024-10-14 15:15"
             },
@@ -169,7 +169,7 @@ const conversations = [
                 timestamp: "2024-10-14 15:20"
             },
             {
-                sender: "Maria Santos",
+                sender: "TecknoChat",
                 text: "Perfect! I can make that size for $65. It will take about 2 weeks to complete.",
                 timestamp: "2024-10-14 15:25"
             },
@@ -179,48 +179,13 @@ const conversations = [
                 timestamp: "2024-10-14 15:28"
             },
             {
-                sender: "Maria Santos",
+                sender: "TecknoChat",
                 text: "Thank you for your interest in the bamboo basket!",
                 timestamp: "2024-10-14 15:30"
             }
         ]
     },
-    {
-        id: 2,
-        participants: ["Customer", "Juan Rodriguez"],
-        lastMessage: "The pots are food-safe and perfect for cooking.",
-        timestamp: "2024-10-13 11:45",
-        messages: [
-            {
-                sender: "Customer",
-                text: "Are these pots suitable for cooking?",
-                timestamp: "2024-10-13 11:30"
-            },
-            {
-                sender: "Juan Rodriguez",
-                text: "The pots are food-safe and perfect for cooking.",
-                timestamp: "2024-10-13 11:45"
-            }
-        ]
-    },
-    {
-        id: 3,
-        participants: ["Customer", "Ana Lopez"],
-        lastMessage: "I can adjust the size to fit your wrist perfectly.",
-        timestamp: "2024-10-12 16:20",
-        messages: [
-            {
-                sender: "Customer",
-                text: "Can this bracelet be resized?",
-                timestamp: "2024-10-12 16:15"
-            },
-            {
-                sender: "Ana Lopez",
-                text: "I can adjust the size to fit your wrist perfectly.",
-                timestamp: "2024-10-12 16:20"
-            }
-        ]
-    }
+    
 ];
 
 // Utility Functions
@@ -522,10 +487,7 @@ function viewProduct(productId) {
                     <span>Category:</span>
                     <span>${currentProduct.category}</span>
                 </div>
-                <div class="meta-item">
-                    <span>Seller:</span>
-                    <span>${currentProduct.seller}</span>
-                </div>
+                
                 <div class="meta-item">
                     <span>Stock:</span>
                     <span>${currentProduct.stock} available</span>
@@ -1149,7 +1111,6 @@ function loadAdminProducts() {
                         <th>Category</th>
                         <th>Price</th>
                         <th>Stock</th>
-                        <th>Seller</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -1161,7 +1122,6 @@ function loadAdminProducts() {
                             <td>${product.category}</td>
                             <td>${formatPrice(product.price)}</td>
                             <td>${product.stock}</td>
-                            <td>${product.seller}</td>
                             <td>
                                 <div class="table-actions">
                                     <button class="btn btn--outline btn--sm" onclick="editProduct(${product.id})">
